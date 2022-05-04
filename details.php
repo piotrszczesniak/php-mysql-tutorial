@@ -29,6 +29,7 @@ include ('config/db_connect.php');
 <?php include('components/header.php'); ?>
 
 <div class="container">
+    <?php if($product) : ;?>
     <div class="row">
         <h1 class="h1 pt-3 pb-3 text-center">
             <?php echo htmlspecialchars($product['title']); ?>
@@ -56,6 +57,13 @@ include ('config/db_connect.php');
             </div>
         </div>
     </div>
+    <?php else : ;?>
+    <div class="row">
+        <h1 class="h1 pt-3 pb-3 text-center">
+            No such product..., sorry! Add new product!
+        </h1>
+    </div>
+    <?php endif ;?>
 </div>
 
 <?php include('components/footer.php') ?>
