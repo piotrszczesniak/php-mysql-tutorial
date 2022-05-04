@@ -53,10 +53,26 @@
 
         if(!array_filter($errors)) {
             // save data in the database
-            header('Location: index.php');
-        } else {
-            // show error
-        }
+
+            $email = mysqli_real_escape_string($dbConnection, $_POST['email']);
+            $title = mysqli_real_escape_string($dbConnection, $_POST['title']);
+            $features = mysqli_real_escape_string($dbConnection, $_POST['features']);
+            $price = mysqli_real_escape_string($dbConnection, $_POST['price']);
+            
+            // create a query to add data into db
+            $sql = "INSERT INTO products(email, title, features, price) VALUES('$email', '$title', '$features', '$price')";
+
+            // save to db and check
+
+            if(mysqli_query($dbConnection, $sql)) {
+                // redirect if saved in db
+                header('Location: index.php');
+            } else {
+                // error when not saved in db
+                echo "query error: " . mysqli_error($dbConnection);
+            }
+
+        } 
 
         
     };

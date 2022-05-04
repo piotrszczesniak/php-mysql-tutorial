@@ -47,7 +47,7 @@ mysqli_close($dbConnection);
                         <?php endforeach ;?>
                     </ul>
                     <p class="fw-bold card-text">Price: <?php echo htmlspecialchars($product['price']) ;?> PLN</p>
-                    <a href="#" class=" btn btn-primary">More info</a>
+                    <a href="/details.php?id=<?php echo $product['id'] ; ?>" class=" btn btn-primary">More info</a>
                 </div>
             </div>
         </div>
